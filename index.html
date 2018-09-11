@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="title">Stop watch</h1>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div class="watch-display">
+                <p class="watch-time" id="display-time"><span id="hours">00</span> : <span id="minutes">00</span> :<span
+                        id="seconds">00</span></p>
+            </div>
+            <div class="watch-controls">
+                <button class="btn btn-start" id="start-stop-timer">Start / Stop</button>
+                <button class="btn btn-reset" id="reset-timer">Reset</button>
+                <button class="btn btn-record" id="record-timer">Record</button>
+            </div>
+            <p class="past-times">Past Times</p>
+            <ol id="add-recorder-time">
+
+            </ol>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <p>Developed by <span class="author">srikanth kanjarla</span></p>
+        <p class="github-link"><a href="">view source on GitHub</a></p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
