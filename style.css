@@ -103,6 +103,13 @@ body {
     font-weight: 600;
 }
 
+.recorded-times li {
+    list-style-type: none;
+    color: var(--independence);
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .footer {
     color: var(--independence);
     margin-top: 230px;
