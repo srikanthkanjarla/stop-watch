@@ -1,14 +1,16 @@
+/* access html elements */
 const secondsElement = document.getElementById('seconds');
 const minutesElement = document.getElementById('minutes');
 const hoursElement = document.getElementById('hours');
 const countDownElement = document.getElementById('count-down');
 const recordTimeElement = document.getElementById('recorded-item');
-/* action buttons */
 
+/* action buttons */
 const startButton = document.getElementById('start-stop-timer');
 const resetButton = document.getElementById('reset-timer');
 const recordButton = document.getElementById('record-timer');
 
+/* Global variables  */
 let timerStatus = false;
 let countDown = 0;
 let seconds = 0;
@@ -17,14 +19,29 @@ let hours = 0;
 let intervalId;
 
 /* if time is < 10 add leading zero */
-function toDoubleDigit(sec, min, hour) {
+function toDoubleDigit(sec, min, hour, count) {
   const s = sec < 10 ? `0${sec}` : sec;
   const m = min < 10 ? `0${min}` : min;
   const h = hour < 10 ? `0${hour}` : hour;
-  return { sec: s, min: m, hour: h };
+  const c = count < 10 ? `0${count}` : count;
+  return {
+    sec: s,
+    min: m,
+    hour: h,
+    count: c,
+  };
 }
 
-function runTimer() {
+/* update stop watch timer */
+function displayWatchTime(timeObj) {
+  countDownElement.innerHTML = timeObj.count;
+  secondsElement.innerHTML = timeObj.sec;
+  minutesElement.innerHTML = timeObj.min;
+  hoursElement.innerHTML = timeObj.hour;
+}
+
+/* start timer */
+function startTimer() {
   intervalId = setInterval(() => {
     countDown += 1;
     if (countDown === 100) {
@@ -35,33 +52,35 @@ function runTimer() {
       hours += 1;
       minutes = 0;
     }
-
     if (seconds === 60) {
       minutes += 1;
       seconds = 0;
     }
-    const timerObj = toDoubleDigit(seconds, minutes, hours);
-    countDownElement.innerHTML = countDown;
-    secondsElement.innerHTML = timerObj.sec;
-    minutesElement.innerHTML = timerObj.min;
-    hoursElement.innerHTML = timerObj.hour;
+    const timerObj = toDoubleDigit(seconds, minutes, hours, countDown);
+    displayWatchTime(timerObj);
   }, 10);
 }
 
+/* stop stopwatch */
 function stopTimer() {
   clearInterval(intervalId);
 }
 
+/* reset stopwatch */
 function resetTimer() {
   clearInterval(intervalId);
   seconds = 0;
   minutes = 0;
   hours = 0;
+  countDown = 0;
+  const timeObj = toDoubleDigit(seconds, minutes, hours, countDown);
+  displayWatchTime(timeObj);
+  startButton.textContent = 'Start';
   recordTimeElement.innerHTML = '';
-  timerStatus = true;
-  runTimer();
+  timerStatus = false;
 }
 
+/* record time for that moment */
 function recordTime() {
   const timeObj = toDoubleDigit(seconds, minutes, hours);
   const recSec = timeObj.sec !== 0 ? `${timeObj.sec}<span class='time-unit'>s</span>` : '';
@@ -70,16 +89,19 @@ function recordTime() {
   const counter = countDown < 10 ? `0${countDown}` : countDown;
   recordTimeElement.innerHTML += `<li>${recHour} ${recMin} ${recSec} <span class="counter">${counter}</span> </li>`;
 }
+
+/* Event listeners */
 /* eslint arrow-parens: [2, "as-needed"] */
 startButton.addEventListener('click', e => {
   timerStatus = !timerStatus;
   e.target.textContent = e.target.textContent === 'Start' ? 'Stop' : 'Start';
   if (timerStatus) {
-    runTimer();
+    startTimer();
   } else {
     stopTimer();
   }
 });
 
 resetButton.addEventListener('click', () => resetTimer());
+
 recordButton.addEventListener('click', () => recordTime());
