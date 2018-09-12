@@ -70,9 +70,10 @@ function recordTime() {
   const counter = countDown < 10 ? `0${countDown}` : countDown;
   recordTimeElement.innerHTML += `<li>${recHour} ${recMin} ${recSec} <span class="counter">${counter}</span> </li>`;
 }
-
-startButton.addEventListener('click', () => {
+/* eslint arrow-parens: [2, "as-needed"] */
+startButton.addEventListener('click', e => {
   timerStatus = !timerStatus;
+  e.target.textContent = e.target.textContent === 'Start' ? 'Stop' : 'Start';
   if (timerStatus) {
     runTimer();
   } else {
