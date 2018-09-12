@@ -12,6 +12,13 @@ let minutes = 0;
 let hours = 0;
 let intervalId;
 
+/* if time is < 10 add leading zero */
+function toDoubleDigit(sec, min, hour) {
+  const s = sec < 10 ? `0${sec}` : sec;
+  const m = min < 10 ? `0${min}` : min;
+  const h = hour < 10 ? `0${hour}` : hour;
+  return { sec: s, min: m, hour: h };
+}
 function runTimer() {
   intervalId = setInterval(() => {
     seconds += 1;
@@ -25,10 +32,10 @@ function runTimer() {
       minutes += 1;
       seconds = 0;
     }
-
-    secondsElement.innerHTML = seconds < 10 ? `0${seconds}` : seconds;
-    minutesElement.innerHTML = minutes < 10 ? `0${minutes}` : minutes;
-    hoursElement.innerHTML = hours < 10 ? `0${hours}` : hours;
+    const timerObj = toDoubleDigit(seconds, minutes, hours);
+    secondsElement.innerHTML = timerObj.sec;
+    minutesElement.innerHTML = timerObj.min;
+    hoursElement.innerHTML = timerObj.hour;
   }, 1000);
 }
 
@@ -47,7 +54,8 @@ function resetTimer() {
 }
 
 function recordTime() {
-  pastTimesElement.innerHTML += `<li>${hours} : ${minutes} : ${seconds}</li>`;
+  const timeObj = toDoubleDigit(seconds, minutes, hours);
+  pastTimesElement.innerHTML += `<li>${timeObj.hour} : ${timeObj.min} : ${timeObj.sec}</li>`;
 }
 
 startTimerElement.addEventListener('click', () => {
