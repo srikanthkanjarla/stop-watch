@@ -1,7 +1,10 @@
 const secondsElement = document.getElementById('seconds');
 const minutesElement = document.getElementById('minutes');
 const hoursElement = document.getElementById('hours');
+const pastTimesElement = document.getElementById('add-recorder-time');
 const startTimerElement = document.getElementById('start-stop-timer');
+const resetTimerElement = document.getElementById('reset-timer');
+const recordTimerElement = document.getElementById('record-timer');
 
 let timerStatus = false;
 let seconds = 0;
@@ -33,6 +36,20 @@ function stopTimer() {
   clearInterval(intervalId);
 }
 
+function resetTimer() {
+  clearInterval(intervalId);
+  seconds = 0;
+  minutes = 0;
+  hours = 0;
+  pastTimesElement.innerHTML = '';
+  timerStatus = true;
+  runTimer();
+}
+
+function recordTime() {
+  pastTimesElement.innerHTML += `<li>${hours} : ${minutes} : ${seconds}</li>`;
+}
+
 startTimerElement.addEventListener('click', () => {
   timerStatus = !timerStatus;
   if (timerStatus) {
@@ -41,3 +58,6 @@ startTimerElement.addEventListener('click', () => {
     stopTimer();
   }
 });
+
+resetTimerElement.addEventListener('click', () => resetTimer());
+recordTimerElement.addEventListener('click', () => recordTime());
