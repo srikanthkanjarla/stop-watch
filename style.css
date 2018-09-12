@@ -20,7 +20,7 @@ body {
 .title {
     color: var(--independence);
     margin: 0;
-    padding: 30px 0;
+    padding: 40px 0;
 }
 
 .wrapper {
@@ -31,9 +31,8 @@ body {
 .watch-display {
     font-family: 'Changa', sans-serif;
     border: 3px solid #fff;
-    padding: 0 30px;
-    text-align: center;
-    width: 40%;
+    padding: 0 35px;
+    width: 45%;
     margin: 0 auto;
     background-color: #eeefff;
     border-radius: 40px;
@@ -45,9 +44,13 @@ body {
     color: var(--cyan-process);
 }
 
+#count-down {
+    color: var(--shiny-shamrock);
+}
+
 .watch-controls {
     margin: 0 auto;
-    padding: 30px;
+    padding: 40px 30px;
     text-align: center;
     height: 50px;
 }
@@ -101,18 +104,38 @@ body {
     color: var(--independence);
     font-size: 20px;
     font-weight: 600;
+    margin-left: 60px;
 }
 
-.recorded-times li {
+.time-unit {
+    color: var(--cyan-process);
+    font-size: 18px;
+}
+
+.record-time-wrapper {
+    min-height: 200px;
+}
+
+.record-time-wrapper ol {
+    width: 160px;
+    text-align: right;
+}
+
+.record-time-wrapper ol li {
     list-style-type: none;
     color: var(--independence);
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 600;
+    word-spacing: 7px;
+}
+
+.counter {
+    font-size: 16px;
+    color: var(--independence);
 }
 
 .footer {
     color: var(--independence);
-    margin-top: 210px;
     text-align: center;
     font-size: 18px;
 }
