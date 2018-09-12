@@ -16,18 +16,19 @@
     <main>
         <div class="wrapper">
             <div class="watch-display">
-                <p class="watch-time" id="display-time"><span id="hours">00</span> : <span id="minutes">00</span> :<span
-                        id="seconds">00</span></p>
+                <span class="watch-time" id="display-time"><span id="hours">00</span> : <span id="minutes">00</span> :<span
+                        id="seconds">00</span> </span>
+                <span id="count-down">00</span>
             </div>
             <div class="watch-controls">
                 <button class="btn btn-start" id="start-stop-timer">Start / Stop</button>
                 <button class="btn btn-reset" id="reset-timer">Reset</button>
                 <button class="btn btn-record" id="record-timer">Record</button>
             </div>
-            <p class="past-times">Past Times</p>
-            <ol id="add-recorder-time" class="recorded-times">
-
-            </ol>
+            <div class="record-time-wrapper">
+                <p class="past-times">Past Times</p>
+                <ol class="record-time-wrapper" id="recorded-item"></ol>
+            </div>
 
         </div>
     </main>
