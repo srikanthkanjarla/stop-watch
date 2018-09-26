@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide|Changa|Yrsa');
+
 :root {
     --sunset-orange: #ee6352;
     --cyan-process: #08b2e3;
@@ -30,13 +31,12 @@ body {
 
 .watch-display {
     font-family: 'Changa', sans-serif;
-    border: 3px solid #fff;
-    padding: 0 35px;
+    padding: 10px 35px;
     width: 45%;
     margin: 0 auto;
     background-color: #eeefff;
     border-radius: 40px;
-    box-shadow: 0 0 6px 1px var(--cyan-process);
+    box-shadow: 0 0 6px 2px var(--independence), 0 0;
 }
 
 .watch-time {
@@ -66,11 +66,13 @@ body {
     font-family: inherit;
     width: 123px;
     border-radius: 10px;
+    transition: 2ms;
 }
 
 .btn:hover {
-    border: none;
     font-weight: 600;
+    border-width: 3px;
+    background-color: #eff;
 }
 
 .btn-start {
@@ -78,26 +80,19 @@ body {
     border: 2px solid var(--cyan-process);
 }
 
+.btn-stop-active {
+    color: #da2000;
+    border: 2px solid #da2000;
+}
+
 .btn-reset {
-    color: var(--sunset-orange);
-    border: 2px solid var(--sunset-orange);
+    color: #ff6500;
+    border: 2px solid #ff6500;
 }
 
 .btn-record {
     color: var(--shiny-shamrock);
     border: 2px solid var(--shiny-shamrock);
-}
-
-.btn-start:hover {
-    box-shadow: 0 0 2px 3px var(--cyan-process);
-}
-
-.btn-reset:hover {
-    box-shadow: 0 0 2px 3px var(--sunset-orange);
-}
-
-.btn-record:hover {
-    box-shadow: 0 0 2px 3px var(--shiny-shamrock);
 }
 
 .past-times {
@@ -155,13 +150,16 @@ body {
     .wrapper {
         width: 100vw;
     }
+
     .watch-display {
         width: 60%;
     }
+
     .btn {
         width: 85px;
         padding: 10px 6px;
     }
+
     .record-time-wrapper {
         min-height: 135px;
     }
