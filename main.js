@@ -97,8 +97,10 @@ startButton.addEventListener('click', e => {
   e.target.textContent = e.target.textContent === 'Start' ? 'Stop' : 'Start';
   if (timerStatus) {
     startTimer();
+    e.target.classList.toggle('btn-stop-active');
   } else {
     stopTimer();
+    e.target.classList.toggle('btn-stop-active');
   }
 });
 
