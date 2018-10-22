@@ -64,35 +64,34 @@ body {
     font-weight: 500;
     font-size: 20px;
     font-family: inherit;
-    width: 123px;
+    width: 120px;
     border-radius: 10px;
     transition: 2ms;
 }
 
 .btn:hover {
     font-weight: 600;
-    border-width: 3px;
     background-color: #eff;
 }
 
 .btn-start {
     color: var(--cyan-process);
-    border: 2px solid var(--cyan-process);
+    border: 1px solid var(--cyan-process);
 }
 
 .btn-stop-active {
     color: #da2000;
-    border: 2px solid #da2000;
+    border: 1px solid #da2000;
 }
 
 .btn-reset {
     color: #ff6500;
-    border: 2px solid #ff6500;
+    border: 1px solid #ff6500;
 }
 
 .btn-record {
     color: var(--shiny-shamrock);
-    border: 2px solid var(--shiny-shamrock);
+    border: 1px solid var(--shiny-shamrock);
 }
 
 .past-times {
