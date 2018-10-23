@@ -76,6 +76,8 @@ function resetTimer() {
   const timeObj = toDoubleDigit(seconds, minutes, hours, countDown);
   displayWatchTime(timeObj);
   startButton.textContent = 'Start';
+  startButton.classList.remove('btn-stop');
+  startButton.classList.add('btn-start');
   recordTimeElement.innerHTML = '';
   timerStatus = false;
 }
@@ -89,7 +91,6 @@ function recordTime() {
   const counter = countDown < 10 ? `0${countDown}` : countDown;
   recordTimeElement.innerHTML += `<li>${recHour} ${recMin} ${recSec} <span class="counter">${counter}</span> </li>`;
 }
-
 /* Event listeners */
 /* eslint arrow-parens: [2, "as-needed"] */
 startButton.addEventListener('click', e => {
@@ -97,10 +98,10 @@ startButton.addEventListener('click', e => {
   e.target.textContent = e.target.textContent === 'Start' ? 'Stop' : 'Start';
   if (timerStatus) {
     startTimer();
-    e.target.classList.toggle('btn-stop-active');
+    e.target.classList.toggle('btn-stop');
   } else {
     stopTimer();
-    e.target.classList.toggle('btn-stop-active');
+    e.target.classList.toggle('btn-stop');
   }
 });
 

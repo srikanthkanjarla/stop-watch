@@ -79,7 +79,7 @@ body {
     border: 1px solid var(--cyan-process);
 }
 
-.btn-stop-active {
+.btn-stop {
     color: #da2000;
     border: 1px solid #da2000;
 }
